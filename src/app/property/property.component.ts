@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from '../services/data.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-property',
@@ -6,10 +8,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./property.component.css']
 })
 export class PropertyComponent implements OnInit {
+  constructor(private backendservice: DataService) {}
 
-  constructor() { }
-
+  // propertyList: Observable<PropertyResult[]>;
   ngOnInit(): void {
+    // this.propertyList = this.backendservice.getAllProperties();
   }
-
 }

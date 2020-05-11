@@ -9,6 +9,7 @@ import { HeaderComponent } from './header/header.component';
 import { ClassesComponent } from './classes/classes.component';
 import { PropertyComponent } from './property/property.component';
 import { HttpClientModule } from '@angular/common/http';
+import { DataService } from './services/data.service';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,7 @@ import { HttpClientModule } from '@angular/common/http';
     PropertyComponent
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
-  providers: [],
+  providers: [DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

@@ -1,22 +1,31 @@
 import { Injectable } from '@angular/core';
 import Globals from './global';
-import { HttpClient } from '@angular/common/http';
-import { of } from 'rxjs';
-import { tap } from 'rxjs/operators';
-
-export interface ClassResult {
-  'rdfs:label': string;
-  'rdfs:comment': string;
-}
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DataService {
   private BASE_URL = Globals.api;
+  headers = new HttpHeaders();
+
   constructor(private http: HttpClient) {}
 
   getAllClasses() {
-    return this.http.get<ClassResult[]>(this.BASE_URL + 'classes');
+    this.headers = this.headers.set(
+      'Content-Type',
+      'application/json; charset=utf-8'
+    );
+    return this.http.get(this.BASE_URL + 'classes', { headers: this.headers });
+  }
+
+  getAllProperties() {
+    this.headers = this.headers.set(
+      'Content-Type',
+      'application/json; charset=utf-8'
+    );
+    return this.http.get(this.BASE_URL + 'properties', {
+      headers: this.headers
+    });
   }
 }

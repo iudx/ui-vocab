@@ -9,7 +9,9 @@
         </tr>
       </thead>
       <tbody id="classSchema">
-        <tr *ngFor="let classes of classList; let i = index"></tr>
+        <tr *ngFor="let classes of classData; let i = index">
+          <th>{{ classes }}</th>
+        </tr>
       </tbody>
     </table>
   </div>

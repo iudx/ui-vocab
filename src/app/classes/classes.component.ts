@@ -13,7 +13,7 @@ export class ClassesComponent implements OnInit {
   classList: Observable<ClassResult[]>;
 
   ngOnInit(): void {
-    this.classList = this.backend.getAllClasses();
-    console.log(this.classList);
+    // this.classList = this.backend.getAllClasses();
+    // console.log(this.classList);
   }
 }
